@@ -28,5 +28,15 @@ let celebs = [
           birth: 1930,
           death: 2002
         }
+    },
+    {
+        title: "King",
+        name: "George VI",
+        bio: "King of the United Kingdom and the Dominions of the British Commonwealth from 11 December 1936 until his death in 1952. He was the last Emperor of India and the first Head of the Commonwealth.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/King_George_VI_of_England%2C_formal_photo_portrait%2C_circa_1940-1946.jpg/330px-King_George_VI_of_England%2C_formal_photo_portrait%2C_circa_1940-1946.jpg",
+        lifespan: {
+          birth: 1895,
+          death: 1952
+        }
     }
 ]
