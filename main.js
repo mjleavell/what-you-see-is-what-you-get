@@ -43,6 +43,8 @@ let celebs = [
 
 const celebCardEl = document.getElementsByClassName('card');
 const bio = document.getElementsByClassName('cardText');
+const inputText = document.getElementById('editText');
+
 
 const writeToDom = (stringToPrint, elementId) => {
     const selectedDiv = document.getElementById(elementId);
@@ -91,15 +93,18 @@ const celebCardClick = () => {
                 element.parentNode.style.border = "4px dotted black";
                 document.getElementById('editText').focus();
                 updateText(celebBio);
+                inputText.innerHTML = "";
             }
         })
     }
 }
 
 const updateText = (outputText) => {
-    let inputText = document.getElementById('editText');
     inputText.addEventListener('keyup', () => {
         outputText.innerHTML = inputText.value;
+        if (e.keyCode == 13) {
+
+        }
     })
 }
 
