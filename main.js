@@ -41,6 +41,9 @@ let celebs = [
     }
 ]
 
+let celebCardEl = document.getElementsByClassName('card');
+
+
 const writeToDom = (stringToPrint, elementId) => {
     const selectedDiv = document.getElementById(elementId);
     selectedDiv.innerHTML = stringToPrint;
@@ -60,7 +63,7 @@ const celebCardBuilder = () => {
             newString +=    `<h5 class="name${i}">${celebs[i].title} ${celebs[i].name}</h5>`
             newString +=    `<img class="img${i}" style="width: 275px; height: 325px;" src="${celebs[i].image}" alt="Card image cap">`
             newString +=    `<p class="bio${i} card-text">${celebs[i].bio}</p>`
-            newString +=    `<p class="life${i} card-text">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
+            newString +=    `<p class="life${i}">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
             newString += `</div>`;
             printToDom(newString, "celebCards");
         } else {
@@ -68,11 +71,24 @@ const celebCardBuilder = () => {
             newString +=    `<h5 class="name${i}">${celebs[i].title} ${celebs[i].name}</h5>`
             newString +=    `<img class="img${i}" style="width: 275px; height: 325px;" src="${celebs[i].image}" alt="Card image cap">`
             newString +=    `<p class="bio${i} card-text">${celebs[i].bio}</p>`
-            newString +=    `<p class="life${i} card-text">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
+            newString +=    `<p class="life${i}">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
             newString += `</div>`;
             printToDom(newString, "celebCards");
-        }
+        } celebCardClick();
+    }
+}
 
+const celebCardClick = () => {
+    for (let i = 0; i < celebCardEl.length; i++) {
+        celebCardEl[i].addEventListener('click', (e) => {
+            let element = e.target;
+            console.log(element);
+            if (element.classList.contains('card')) {
+                element.style.border = "4px dotted black";
+            } else {
+                element.parentNode.style.border = "4px dotted black";
+            }
+        })
     }
 }
 
