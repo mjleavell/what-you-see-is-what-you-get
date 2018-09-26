@@ -21,7 +21,7 @@ let celebs = [
     },
     {
         title: "Princess",
-        name: "Margaret, Countess of Snowdon",
+        name: "Margaret",
         bio: "The younger daughter of King George VI and Queen Elizabeth and the only sibling of Queen Elizabeth II",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Princess_Margaret_1965b_%28cropped%29.jpg/330px-Princess_Margaret_1965b_%28cropped%29.jpg",
         lifespan: {
@@ -40,3 +40,30 @@ let celebs = [
         }
     }
 ]
+
+const writeToDom = (stringToPrint, elementId) => {
+    const selectedDiv = document.getElementById(elementId);
+    selectedDiv.innerHTML = stringToPrint;
+};
+
+const printToDom = (stringToPrint, elementId) => {
+    const selectedDiv = document.getElementById(elementId);
+    selectedDiv.innerHTML = stringToPrint;
+};
+
+const celebCardBuilder = () => {
+    let newString = "";
+    for (let i = 0; i < celebs.length; i++) {
+        let cardIndex = celebs.indexOf(celebs[i]) + 1;
+        newString += `<div class="card" id="${cardIndex}">`
+        newString +=    `<h5 class="celeb-name">${celebs[i].title} ${celebs[i].name}</h5>`
+        newString +=    `<img class="celeb-img" style="width: 275px; height: 325px;" src="${celebs[i].image}" alt="Card image cap">`
+        newString +=    `<p class="card-text celeb-bio">${celebs[i].bio}</p>`
+        newString +=    `<p class="card-text celeb-life">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
+        newString += `</div>`;
+        printToDom(newString, "celebCards");
+    }
+}
+
+// FUNCTIONS
+celebCardBuilder();
