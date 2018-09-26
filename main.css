@@ -36,3 +36,11 @@ body {
     padding: 5px;
     margin: 0px;
 }
+
+.even {
+    background-color: #fefec8;
+}
+
+.odd {
+    background-color: #c8e3fe;
+}

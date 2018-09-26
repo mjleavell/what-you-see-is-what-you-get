@@ -10,7 +10,7 @@ let celebs = [
         }
     },
     {
-        title: "Queen",
+        title: "Duchess",
         name: "Elizabeth the Queen Mother",
         bio: "The wife of King George VI. She was Queen consort of the United Kingdom from her husband's accession in 1936 until his death in 1952",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Queen_Elizabeth_the_Queen_Mother_portrait.jpg/330px-Queen_Elizabeth_the_Queen_Mother_portrait.jpg",
@@ -55,13 +55,24 @@ const celebCardBuilder = () => {
     let newString = "";
     for (let i = 0; i < celebs.length; i++) {
         let cardIndex = celebs.indexOf(celebs[i]) + 1;
-        newString += `<div class="card" id="${cardIndex}">`
-        newString +=    `<h5 class="celeb-name">${celebs[i].title} ${celebs[i].name}</h5>`
-        newString +=    `<img class="celeb-img" style="width: 275px; height: 325px;" src="${celebs[i].image}" alt="Card image cap">`
-        newString +=    `<p class="card-text celeb-bio">${celebs[i].bio}</p>`
-        newString +=    `<p class="card-text celeb-life">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
-        newString += `</div>`;
-        printToDom(newString, "celebCards");
+        if (cardIndex % 2) {
+            newString += `<div class="even card" id="${cardIndex}">`
+            newString +=    `<h5 class="name${i}">${celebs[i].title} ${celebs[i].name}</h5>`
+            newString +=    `<img class="img${i}" style="width: 275px; height: 325px;" src="${celebs[i].image}" alt="Card image cap">`
+            newString +=    `<p class="bio${i} card-text">${celebs[i].bio}</p>`
+            newString +=    `<p class="life${i} card-text">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
+            newString += `</div>`;
+            printToDom(newString, "celebCards");
+        } else {
+            newString += `<div class="odd card" id="${cardIndex}">`
+            newString +=    `<h5 class="name${i}">${celebs[i].title} ${celebs[i].name}</h5>`
+            newString +=    `<img class="img${i}" style="width: 275px; height: 325px;" src="${celebs[i].image}" alt="Card image cap">`
+            newString +=    `<p class="bio${i} card-text">${celebs[i].bio}</p>`
+            newString +=    `<p class="life${i} card-text">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
+            newString += `</div>`;
+            printToDom(newString, "celebCards");
+        }
+
     }
 }
 
