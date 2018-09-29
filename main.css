@@ -48,3 +48,11 @@ body {
 .border{
     border: 4px dashed black;
 }
+
+.cardText {
+    text-align: justify;
+}
+
+.card-life {
+    text-align: center;
+}
