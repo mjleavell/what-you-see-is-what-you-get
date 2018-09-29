@@ -21,7 +21,7 @@ body {
     margin: 20px;
 }
 
-.card h3 {
+.card h3, .card h5 {
     font-weight: bold;
     text-align: center;
     margin: 10px;
@@ -55,4 +55,5 @@ body {
 
 .card-life {
     text-align: center;
+    padding-bottom: 4px;
 }

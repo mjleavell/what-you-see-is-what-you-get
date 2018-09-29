@@ -61,7 +61,8 @@ const celebCardBuilder = () => {
         let cardIndex = celebs.indexOf(celebs[i]) + 1;
         if (cardIndex % 2) {
             newString += `<div class="card even" id="${cardIndex}">`
-            newString += `<h3 class="name${i}">${celebs[i].title} ${celebs[i].name}</h3>`
+            newString += `<h3 class="name${i}">${celebs[i].name}</h3>`
+            newString += `<h5 class="title${i}">${celebs[i].title}</h5>`
             newString += `<img class="img${i}" style="width: 200px; height: 250px;" src="${celebs[i].image}" alt="Card image cap">`
             newString += `<p class="cardText" id="bio${i}">${celebs[i].bio}</p>`
             newString += `<p class="card-life">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
@@ -69,7 +70,8 @@ const celebCardBuilder = () => {
             printToDom(newString, "celebCards");
         } else {
             newString += `<div class="card odd" id="${cardIndex}">`
-            newString += `<h3 class="name${i}">${celebs[i].title} ${celebs[i].name}</h3>`
+            newString += `<h3 class="name${i}">${celebs[i].name}</h3>`
+            newString += `<h5 class="title${i}">${celebs[i].title}</h5>`
             newString += `<img class="img${i}" style="width: 200px; height: 250px;" src="${celebs[i].image}" alt="Card image cap">`
             newString += `<p class="cardText" id="bio${i}">${celebs[i].bio}</p>`
             newString += `<p class="card-life">${celebs[i].lifespan.birth} - ${celebs[i].lifespan.death}</p>`
@@ -109,7 +111,7 @@ const updateText = () => {
             for (let i = 0; i < celebCardEl.length; i++) {
             const celebCard = celebCardEl[i];
             if (celebCard.classList.contains('border')) {
-                celebCard.childNodes[2].innerHTML = e.target.value;
+                celebCard.childNodes[3].innerHTML = e.target.value;
             }
             }
         }
